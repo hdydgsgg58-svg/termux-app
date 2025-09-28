@@ -7,11 +7,11 @@
 # For more details, see
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
-# Add any project specific keep options here:
+-dontobfuscate
+#-renamesourcefileattribute SourceFile
+#-keepattributes SourceFile,LineNumberTable
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+# Temp fix for androidx.window:window:1.0.0-alpha09 imported by termux-shared
+# https://issuetracker.google.com/issues/189001730
+# https://android-review.googlesource.com/c/platform/frameworks/support/+/1757630
+-keep class androidx.window.** { *; }
